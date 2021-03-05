@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "gatsbyV3",
+    title: `gatsbyV3`,
+    author: `tlagraphics`,
+    description: `getting it started`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
