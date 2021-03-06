@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 
 import styled from "styled-components";
 import "normalize.css";
+import GlobalStyles from "./globalStyles";
 
 const Container = styled.div`
   max-width: 100%;
@@ -20,6 +21,7 @@ const Container = styled.div`
 const Layout = ({ children }) => {
   return (
     <Container>
+      <GlobalStyles />
       <Header />
       <main>{children}</main>
       <Footer />
