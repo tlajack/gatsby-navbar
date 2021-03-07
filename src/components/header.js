@@ -180,8 +180,8 @@ function renderSublinks(x) {
 
 const Header = () => {
   const [menuState, setMenuState] = useState(false);
+
   function clickHandler() {
-    console.log("clicky");
     setMenuState(!menuState);
   }
 
