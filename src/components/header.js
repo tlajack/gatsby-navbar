@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 
 const navlinks = [
-  { name: "Home", slug: "/" },
   {
     name: "About",
     slug: "/about",
@@ -43,6 +42,10 @@ const TheNav = styled.div`
   a {
     text-decoration: none;
   }
+  .bars {
+    display: none;
+  }
+
   ul {
     margin: 1em;
     display: flex;
@@ -92,6 +95,73 @@ const TheNav = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    ul {
+      transition: max-height 300ms ease-in;
+      overflow: hidden;
+    }
+    ul.inactive {
+      max-height: 0;
+      * {
+        display: none;
+      }
+    }
+    ul.active {
+      display: flex;
+      max-height: 800px;
+      position: absolute;
+      top: 52;
+      left: 0;
+      flex-direction: column;
+      background-color: gray;
+      margin: 0;
+      padding: 1em;
+      li {
+        margin-bottom: 1em;
+        ul {
+          background-color: transparent;
+          max-height: initial;
+          margin-left: 1em;
+          position: relative;
+        }
+      }
+    }
+
+    .barContainer {
+      margin-left: auto;
+      padding: 12px;
+      cursor: pointer;
+      background-color: var(--red);
+    }
+    .barContainer:focus {
+      outline: none;
+    }
+    .bars {
+      background: var(--barColor);
+      display: inline-block;
+      height: 3px;
+      position: relative;
+      width: 20px;
+      top: 1px;
+    }
+    .bars:before,
+    .bars:after {
+      background: var(--barColor);
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all 0.3s ease-out;
+      width: 100%;
+    }
+    .bars:before {
+      top: 7px;
+    }
+    .bars:after {
+      bottom: 7px;
+    }
+  }
 `;
 
 function renderSublinks(x) {
@@ -99,7 +169,9 @@ function renderSublinks(x) {
     <ul>
       {x.map((sublink, j) => (
         <li key={j}>
-          <Link to={sublink.slug}>{sublink.name}</Link>
+          <Link to={sublink.slug} title={sublink.name}>
+            {sublink.name}
+          </Link>
         </li>
       ))}
     </ul>
@@ -107,12 +179,20 @@ function renderSublinks(x) {
 }
 
 const Header = () => {
+  const [menuState, setMenuState] = useState(false);
+  function clickHandler() {
+    console.log("clicky");
+    setMenuState(!menuState);
+  }
+
   return (
     <TheNav>
-      <Link to="/" className="logo">
-        <StaticImage src="../images/icon.png" alt="logo" height={40} />
-      </Link>
-      <ul>
+      <div className="logo">
+        <Link to="/" title="home">
+          <StaticImage src="../images/icon.png" alt="logo" height={40} />
+        </Link>
+      </div>
+      <ul className={menuState ? "active" : "inactive"}>
         {navlinks.map((navlink, i) => (
           <li key={i}>
             <Link to={navlinks[i].slug}>{navlinks[i].name}</Link>
@@ -120,6 +200,15 @@ const Header = () => {
           </li>
         ))}
       </ul>
+      <div
+        className="barContainer"
+        onClick={clickHandler}
+        onKeyDown={clickHandler}
+        role="button"
+        tabIndex={0}
+      >
+        <span className="bars"></span>
+      </div>
     </TheNav>
   );
 };
