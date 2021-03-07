@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-// import montserrat from "../fonts/Montserrat-Bold.ttf";
-// import lora from "../fonts/Lora-Italic-VariableFont_wght.ttf";
-// import hind from "../fonts/HindMadurai-Light.ttf";
+import "@fontsource/open-sans";
+import "@fontsource/montserrat/600.css";
 
 const GlobalStyles = createGlobalStyle`
 	:root{
@@ -17,18 +16,17 @@ const GlobalStyles = createGlobalStyle`
 	html{
 		font-size:12px;
 		font-family: 'Open Sans', sans-serif;
+		font-weight:400;
+		font-style:normal;
+
 	}
 	img{
 		max-width:100%;
 	}
-	h1,h3,h4{
+	h1,h2, h3,h4{
 		font-family: 'Montserrat',sans-serif;
 	}
-	h2{
-		font-family: 'Lora',sans-serif;
-
-	}
-
+	
 	ul, li, p {
 		font-family: 'Open Sans', sans-serif;
 	}

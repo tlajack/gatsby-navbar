@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 // import { Link } from "gatsby";
-import { Helmet } from "react-helmet";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -23,13 +22,6 @@ const Layout = ({ children }) => {
   return (
     <Container>
       <GlobalStyles />
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Montserrat:wght@700&family=Open+Sans:wght@300&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
       <Header />
       <main>{children}</main>
       <Footer />

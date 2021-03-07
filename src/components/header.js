@@ -28,6 +28,7 @@ const TheNav = styled.div`
   height: 50px;
   width: 100%;
   font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
   border-bottom: 3px solid var(--red);
   display: flex;
   flex-direction: row;
@@ -37,7 +38,8 @@ const TheNav = styled.div`
   * {
     box-sizing: border-box;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat";
+    font-weight: 600;
   }
   a {
     text-decoration: none;
