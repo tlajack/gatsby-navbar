@@ -5,6 +5,12 @@ import "@fontsource/montserrat/600.css";
 
 const GlobalStyles = createGlobalStyle`
 	:root{
+		--primary:#d32f2f;
+		--primary-light:#ff6659;
+		--primary-dark:#9a0007;
+		--secondary:#0eff1f;
+		--secondary-light:#72ff60;
+		--secondary-dark:#00ca00;
 		--red: #ff3535;
 		--black: #3E3D3D;
 		--yellow: #ffC500;

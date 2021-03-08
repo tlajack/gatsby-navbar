@@ -7,10 +7,6 @@ const navlinks = [
   {
     name: "About",
     slug: "/about",
-    sublink: [
-      { name: "About 2", slug: "/item2" },
-      { name: "About 3", slug: "/item3" },
-    ],
   },
   {
     name: "Contact",
@@ -24,14 +20,18 @@ const navlinks = [
 ];
 
 const TheNav = styled.div`
-  background-color: var(--yellow);
+  background-color: var(--primary);
   height: 50px;
   width: 100%;
   font-size: 1.4rem;
   font-family: "Montserrat", sans-serif;
-  border-bottom: 3px solid var(--red);
+  border-top: 8px solid var(--primary-dark);
   display: flex;
   flex-direction: row;
+  color: #ffffff;
+  a {
+    color: #ffffff;
+  }
   .logo {
     margin: 6px;
   }
@@ -56,12 +56,12 @@ const TheNav = styled.div`
     list-style: none;
     padding-inline-start: 0;
     li {
-      padding: 0 20px;
+      padding: 0 20px 13px;
       position: relative;
       ul {
-        background-color: var(--yellow);
+        background-color: var(--primary);
         margin: 0;
-        padding: 14px 0 0 1em;
+        padding: 0 0 0 1em;
         padding-inline-start: 0;
         display: flex;
         flex-direction: column;
@@ -81,7 +81,7 @@ const TheNav = styled.div`
           width: 100%;
         }
         li:hover {
-          background-color: var(--red);
+          background-color: var(--primary-dark);
           a {
             display: block;
             color: white;
@@ -116,7 +116,7 @@ const TheNav = styled.div`
       top: 52;
       left: 0;
       flex-direction: column;
-      background-color: gray;
+      background-color: var(--primary-dark);
       margin: 0;
       padding: 1em;
       li {
