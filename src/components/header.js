@@ -103,6 +103,10 @@ const TheNav = styled.div`
       transition: max-height 300ms ease-in;
       overflow: hidden;
     }
+    a:hover {
+      /* border-bottom: 2px solid var(--secondary-dark); */
+      color: var(--secondary-light);
+    }
     ul.inactive {
       max-height: 0;
       * {
@@ -126,6 +130,9 @@ const TheNav = styled.div`
           max-height: initial;
           margin-left: 1em;
           position: relative;
+          a:hover {
+            color: var(--secondary-light);
+          }
         }
       }
     }
@@ -134,13 +141,16 @@ const TheNav = styled.div`
       margin-left: auto;
       padding: 12px;
       cursor: pointer;
-      background-color: var(--red);
+      background-color: var(--primary-light);
+      :hover {
+        background-color: var(--secondary-light);
+      }
     }
     .barContainer:focus {
       outline: none;
     }
     .bars {
-      background: var(--barColor);
+      background: var(--primary-dark);
       display: inline-block;
       height: 3px;
       position: relative;
@@ -149,7 +159,7 @@ const TheNav = styled.div`
     }
     .bars:before,
     .bars:after {
-      background: var(--barColor);
+      background: var(--primary-dark);
       content: "";
       display: block;
       height: 100%;
