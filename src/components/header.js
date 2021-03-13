@@ -10,10 +10,10 @@ const navlinks = [
   },
   {
     name: "Contact",
-    slug: "/item1",
+    slug: "/contact",
     sublink: [
-      { name: "Car", slug: "/item2" },
-      { name: "Potatoe", slug: "/item3" },
+      { name: "Car", slug: "/item1" },
+      { name: "Potatoe", slug: "/item2" },
       { name: "Hexcarnivore", slug: "/item3" },
     ],
   },
@@ -21,7 +21,7 @@ const navlinks = [
 
 const TheNav = styled.div`
   background-color: var(--primary);
-  height: 50px;
+  height: 55px;
   width: 100%;
   font-size: 1.4rem;
   font-family: "Montserrat", sans-serif;
@@ -34,6 +34,10 @@ const TheNav = styled.div`
   }
   .logo {
     margin: 6px;
+  }
+  .currentPage {
+    /* text-decoration: underline; */
+    border-bottom: 5px solid var(--secondary-dark);
   }
   * {
     box-sizing: border-box;
@@ -79,6 +83,7 @@ const TheNav = styled.div`
           margin: 0;
           padding: 10px 20px;
           width: 100%;
+          min-height: 50px;
         }
         li:hover {
           background-color: var(--primary-dark);
@@ -123,8 +128,12 @@ const TheNav = styled.div`
       background-color: var(--primary-dark);
       margin: 0;
       padding: 1em;
+      a + ul {
+        margin-top: 1em;
+      }
       li {
         margin-bottom: 1em;
+
         ul {
           background-color: transparent;
           max-height: initial;
@@ -132,6 +141,9 @@ const TheNav = styled.div`
           position: relative;
           a:hover {
             color: var(--secondary-light);
+          }
+          li {
+            margin-bottom: 0;
           }
         }
       }
@@ -181,7 +193,15 @@ function renderSublinks(x) {
     <ul>
       {x.map((sublink, j) => (
         <li key={j}>
-          <Link to={sublink.slug} title={sublink.name}>
+          <Link
+            to={sublink.slug}
+            title={sublink.name}
+            className={
+              window.location.pathname.replace(/\/$/, "") === sublink.slug
+                ? "currentPage"
+                : ""
+            }
+          >
             {sublink.name}
           </Link>
         </li>
@@ -206,7 +226,14 @@ const Header = () => {
       </div>
       <ul className={menuState ? "active" : "inactive"}>
         {navlinks.map((navlink, i) => (
-          <li key={i}>
+          <li
+            key={i}
+            className={
+              window.location.pathname.replace(/\/$/, "") === navlinks[i].slug
+                ? "currentPage"
+                : ""
+            }
+          >
             <Link to={navlinks[i].slug}>{navlinks[i].name}</Link>
             {navlinks[i].sublink ? renderSublinks(navlinks[i].sublink) : null}
           </li>

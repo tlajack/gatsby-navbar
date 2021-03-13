@@ -1,7 +1,6 @@
 ## 🚀 Gatsby v3 basic starter
 
 styled components - global styles, css variables
-google fonts - fontsource to the rescue
-navbar - pure css - but will need state to implement
+google fonts throgh fontsource
 
-todo: navbar, implement current selection
+todo: fix navbar's current-page styling of item with sublinks - styling applies to the group...
