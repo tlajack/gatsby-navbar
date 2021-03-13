@@ -3,6 +3,7 @@ module.exports = {
     title: `gatsbyV3`,
     author: `tlagraphics`,
     description: `getting it started`,
+    siteUrl: `http://testingitstill.com`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
